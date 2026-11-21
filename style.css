@@ -176,7 +176,7 @@ ul { list-style: none; }
 }
 
 .project-title {
-    font-size: clamp(1.6rem, 3.8vw, 3.8rem);
+    font-size: clamp(1.4rem, 3vw, 3rem);
     font-weight: 400;
     letter-spacing: -.1em;
     line-height: .9;
@@ -285,7 +285,7 @@ ul { list-style: none; }
     .work { grid-template-columns: 1fr; gap: 24px; }
     .project-title { letter-spacing: -.06em; }
     .project-details { grid-template-columns: 1fr; }
-    .detail-block { border-right: 0; border-bottom: 1px solid var(--line); padding-left: 0; padding-right: 0; }
+    .detail-block, .detail-block:not(:first-child) { border-right: 0; border-bottom: 1px solid var(--line); padding-left: 0; padding-right: 0; }
     .detail-block:nth-child(3) { grid-column: unset; border-top: 0; padding-left: 0; }
     .detail-block:last-child { border-bottom: 0; }
     .project-flow { flex-direction: column; align-items: stretch; }
