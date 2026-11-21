@@ -108,7 +108,7 @@ ul { list-style: none; }
 .hero-cta .arrow { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--quiet); font-size: 19px; transition: background .25s, color .25s, transform .25s; }
 .hero-cta:hover .arrow { background: var(--ink); color: var(--bg); transform: rotate(-45deg); }
 
-.about, .skills, .contact { padding: var(--space) var(--side); }
+.about, .skills, .contact, .work { padding: var(--space) var(--side); }
 .about { display: grid; grid-template-columns: minmax(150px, 20vw) 1fr; gap: 40px; }
 .section-marker { display: flex; flex-direction: column; gap: 14px; }
 .section-number { color: var(--quiet); font-size: 12px; }
@@ -164,6 +164,83 @@ ul { list-style: none; }
 .contact-link:hover .link-arrow { transform: translate(3px, -3px); }
 .footer { display: flex; justify-content: space-between; padding: 22px var(--side); border-top: 1px solid var(--line); }
 
+/* ---- Work / Projects ---- */
+.work { display: grid; grid-template-columns: minmax(150px, 20vw) 1fr; gap: 40px; }
+.work-body { min-width: 0; }
+
+.project-meta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: clamp(28px, 5vw, 52px);
+}
+
+.project-title {
+    font-size: clamp(1.6rem, 3.8vw, 3.8rem);
+    font-weight: 400;
+    letter-spacing: -.1em;
+    line-height: .9;
+    color: var(--ink);
+    margin-bottom: clamp(36px, 6vw, 72px);
+}
+
+/* Video embed — 16:9 responsive */
+.video-wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background: var(--line);
+    margin-bottom: clamp(48px, 8vw, 96px);
+}
+.video-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Detail columns */
+.project-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line);
+    margin-bottom: clamp(48px, 7vw, 80px);
+}
+.detail-block {
+    padding: 28px 24px 28px 0;
+    border-right: 1px solid var(--line);
+}
+.detail-block:not(:first-child) { padding-left: 24px; }
+.detail-block:last-child { border-right: 0; }
+.detail-label { margin-bottom: 16px; color: var(--muted); font-size: 10px; font-weight: 400; }
+.detail-block p { color: var(--muted); font-size: 13px; line-height: 1.9; }
+
+/* Flow diagram */
+.project-flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid var(--line);
+    overflow: hidden;
+}
+.flow-step {
+    flex: 1;
+    padding: 20px 22px;
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.4;
+}
+.flow-arrow {
+    color: var(--quiet);
+    font-size: 14px;
+    padding: 0 4px;
+    flex-shrink: 0;
+}
+
 /* Scroll reveals */
 .reveal {
     opacity: 0;
@@ -185,6 +262,10 @@ ul { list-style: none; }
     .contact-links { grid-template-columns: repeat(2, 1fr); }
     .contact-link:nth-child(2) { border-right: 0; }
     .contact-link:nth-child(n+3) { border-top: 1px solid var(--line); }
+    .project-details { grid-template-columns: 1fr 1fr; }
+    .detail-block:nth-child(2) { border-right: 0; }
+    .detail-block:nth-child(3) { grid-column: span 2; border-right: 0; border-top: 1px solid var(--line); padding-left: 0; }
+    .project-flow { flex-wrap: wrap; }
 }
 @media (max-width: 600px) {
     .nav-links { display: none; }
@@ -201,6 +282,16 @@ ul { list-style: none; }
     .about-body { grid-template-columns: 1fr; }
     .about-lead { width: 100%; margin-bottom: 42px; }
     .about-body > p:last-child { width: 100%; }
+    .work { grid-template-columns: 1fr; gap: 24px; }
+    .project-title { letter-spacing: -.06em; }
+    .project-details { grid-template-columns: 1fr; }
+    .detail-block { border-right: 0; border-bottom: 1px solid var(--line); padding-left: 0; padding-right: 0; }
+    .detail-block:nth-child(3) { grid-column: unset; border-top: 0; padding-left: 0; }
+    .detail-block:last-child { border-bottom: 0; }
+    .project-flow { flex-direction: column; align-items: stretch; }
+    .flow-step { text-align: left; border-bottom: 1px solid var(--line); }
+    .flow-step:last-child { border-bottom: 0; }
+    .flow-arrow { display: none; }
     .skill-col:nth-child(3) { padding-left: 0; }
     .skills-focus { grid-template-columns: 1fr; gap: 24px; }
     .focus-items span { font-size: 0.95rem; }
